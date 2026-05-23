@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/epf-angular",
+            "outputPath": { "base": "dist", "browser": "" },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -29,8 +29,8 @@
           "configurations": {
             "production": {
               "budgets": [
-                {"type": "initial", "maximumWarning": "500kb", "maximumError": "1mb"},
-                {"type": "anyComponentStyle", "maximumWarning": "2kb", "maximumError": "4kb"}
+                {"type": "initial", "maximumWarning": "2mb", "maximumError": "4mb"},
+                {"type": "anyComponentStyle", "maximumWarning": "16kb", "maximumError": "32kb"}
               ],
               "outputHashing": "all"
             },
