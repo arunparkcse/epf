@@ -1,0 +1,43 @@
+<div class="page-banner">
+  <div class="container">
+    <h1>Printing Technology</h1>
+    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><a routerLink="/about-us">About Us</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Printing Technology</span></nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:60px">
+      <span class="section-badge">State-Of-The-Art</span>
+      <h2 class="section-title">Our <span style="color:var(--primary)">Printing Technologies</span></h2>
+      <div class="divider center"></div>
+      <p class="section-subtitle">EPF invests in the latest printing and converting technologies, ensuring we deliver the highest quality flexible packaging and label solutions to our clients.</p>
+    </div>
+    <div class="tech-grid">
+      @for (tech of technologies; track tech.title; let i = $index) {
+        <div class="tech-card">
+          <div class="tech-number">{{ (i+1).toString().padStart(2,'0') }}</div>
+          <div class="tech-icon"><i [class]="tech.icon"></i></div>
+          <h3>{{ tech.title }}</h3>
+          <p>{{ tech.desc }}</p>
+          <ul class="tech-features">
+            @for (f of tech.features; track f) {
+              <li><i class="fas fa-check-circle"></i> {{ f }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Facility Banner -->
+<section class="facility-banner">
+  <div class="facility-overlay"></div>
+  <div class="container facility-content">
+    <span class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;">Kizad, Abu Dhabi</span>
+    <h2>Modern Production Facility</h2>
+    <p>Our state-of-the-art production facility in Kizad, Abu Dhabi is equipped with the latest printing and converting equipment operated by highly skilled professionals.</p>
+    <a routerLink="/contact-us" class="btn btn-white">Schedule a Visit <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>

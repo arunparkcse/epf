@@ -1,0 +1,414 @@
+/* =========================================================
+   NAVBAR — Mexdot Editorial Style
+   ========================================================= */
+
+/* ---------- Sticky header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  padding: 0 48px;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 1px 0 var(--line);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 24px;
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* ---------- Logo ---------- */
+.site-logo {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+  flex-shrink: 0;
+  text-decoration: none;
+
+  img {
+    height: 42px;
+    width: auto;
+    display: block;
+  }
+}
+
+/* ---------- Desktop nav ---------- */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @media (max-width: 1023px) { display: none; }
+}
+
+.nav-item {
+  position: relative;
+
+  &.has-drop:hover .drop-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.nav-link {
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  background: none;
+  border: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after,
+  &.active::after {
+    width: 100%;
+  }
+
+  &.active { color: var(--gold-dark); }
+}
+
+/* ---------- Dropdown panel ---------- */
+.drop-panel {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  min-width: 220px;
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: var(--white);
+    border-left: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+  }
+}
+
+.drop-link {
+  display: block;
+  padding: 10px 24px;
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover {
+    color: var(--black);
+    background: var(--off-white);
+  }
+}
+
+/* ---------- Header right ---------- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-tel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  i { color: var(--gold); font-size: 11px; }
+
+  &:hover { color: var(--gold-dark); }
+
+  @media (max-width: 767px) { display: none; }
+}
+
+/* ---------- Menu toggle button ---------- */
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.toggle-label {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--black);
+  transition: color 0.2s;
+
+  .menu-toggle:hover & { color: var(--gold-dark); }
+}
+
+.toggle-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 22px;
+
+  span {
+    display: block;
+    height: 1px;
+    background: var(--black);
+    transition: transform 0.35s ease, opacity 0.35s ease, width 0.35s ease;
+    transform-origin: center;
+
+    &:nth-child(2) {
+      width: 14px;
+      margin-left: auto;
+    }
+  }
+
+  .menu-toggle.open & {
+    span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+      width: 22px;
+    }
+    span:nth-child(2) {
+      transform: translateY(-6px) rotate(-45deg);
+      width: 22px;
+      margin-left: 0;
+    }
+  }
+}
+
+/* =========================================================
+   OVERLAY MENU
+   ========================================================= */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.65s cubic-bezier(0.77, 0, 0.175, 1),
+              visibility 0.65s;
+
+  &.open {
+    visibility: visible;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.overlay-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 100px 80px 60px;
+  overflow-y: auto;
+
+  @media (max-width: 767px) {
+    padding: 100px 32px 48px;
+  }
+}
+
+/* ---------- Overlay nav items ---------- */
+.overlay-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.overlay-item {
+  border-top: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  &:last-child { border-bottom: 1px solid var(--line); }
+
+  .overlay-menu.open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4.5vw, 52px);
+  font-style: italic;
+  color: var(--black);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1;
+  transition: color 0.25s;
+
+  &:hover { color: var(--gold-dark); }
+
+  &.has-sub {
+    justify-content: space-between;
+
+    i {
+      font-size: 18px;
+      color: var(--gray-text);
+      transition: transform 0.3s ease, color 0.2s;
+      flex-shrink: 0;
+
+      &.rotated {
+        transform: rotate(180deg);
+        color: var(--gold-dark);
+      }
+    }
+  }
+}
+
+.ol-num {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  font-style: normal;
+  min-width: 32px;
+}
+
+/* ---------- Sub-nav inside overlay ---------- */
+.overlay-sub {
+  padding: 0 0 20px 52px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  animation: subFadeIn 0.3s ease forwards;
+}
+
+@keyframes subFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.overlay-sub-link {
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-text);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover { color: var(--gold-dark); }
+}
+
+/* ---------- Overlay footer strip ---------- */
+.overlay-footer {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+
+  @media (max-width: 767px) {
+    gap: 20px 32px;
+  }
+}
+
+.of-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.of-label {
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+.of-col a {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover { color: var(--gold-dark); }
+}
+
+.of-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black) !important;
+  text-decoration: none;
+
+  i { color: var(--gold); }
+}

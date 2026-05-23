@@ -1,0 +1,96 @@
+<header class="site-header" [class.scrolled]="isScrolled()">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a routerLink="/" class="site-logo" (click)="closeMenu()">
+      <img src="https://emiratesprintingforms.com/wp-content/uploads/2021/10/logo-default.png" alt="Emirates Printing Forms"/>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="desktop-nav">
+      @for (item of navItems; track item.label) {
+        @if (item.children) {
+          <div class="nav-item has-drop">
+            <span class="nav-link">{{ item.label }}</span>
+            <div class="drop-panel">
+              @for (child of item.children; track child.label) {
+                <a [routerLink]="child.link" class="drop-link">{{ child.label }}</a>
+              }
+            </div>
+          </div>
+        } @else {
+          <a [routerLink]="item.link" class="nav-link"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.link === '/'}">{{ item.label }}</a>
+        }
+      }
+    </nav>
+
+    <!-- Right actions -->
+    <div class="header-right">
+      <a href="tel:+97126730800" class="header-tel">
+        <i class="fas fa-phone"></i>
+        <span>+971 2 673 0800</span>
+      </a>
+      <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuOpen()" aria-label="Menu">
+        <span class="toggle-label">{{ menuOpen() ? 'CLOSE' : 'MENU' }}</span>
+        <div class="toggle-lines">
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Full-screen Overlay Menu -->
+<div class="overlay-menu" [class.open]="menuOpen()">
+  <div class="overlay-inner">
+    <div class="overlay-nav">
+      @for (item of navItems; track item.label; let i = $index) {
+        <div class="overlay-item" [style.transition-delay]="(i * 60) + 'ms'">
+          @if (item.children) {
+            <button class="overlay-link has-sub" (click)="toggleDropdown(item.label)">
+              <span class="ol-num">{{ (i+1).toString().padStart(2,'0') }}</span>
+              {{ item.label }}
+              <i class="fas fa-chevron-down" [class.rotated]="isDropdownOpen(item.label)"></i>
+            </button>
+            @if (isDropdownOpen(item.label)) {
+              <div class="overlay-sub">
+                @for (child of item.children; track child.label) {
+                  <a [routerLink]="child.link" class="overlay-sub-link" (click)="closeMenu()">{{ child.label }}</a>
+                }
+              </div>
+            }
+          } @else {
+            <a [routerLink]="item.link" class="overlay-link" (click)="closeMenu()">
+              <span class="ol-num">{{ (i+1).toString().padStart(2,'0') }}</span>
+              {{ item.label }}
+            </a>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="overlay-footer">
+      <div class="of-col">
+        <p class="of-label">Abu Dhabi</p>
+        <a href="tel:+97126730800">+971 2 673 0800</a>
+      </div>
+      <div class="of-col">
+        <p class="of-label">Dubai</p>
+        <a href="tel:+97142827877">+971 4 282 7877</a>
+      </div>
+      <div class="of-col">
+        <p class="of-label">Email</p>
+        <a href="mailto:info@epfe.ae">info&#64;epfe.ae</a>
+      </div>
+      <div class="of-col">
+        <a href="https://www.linkedin.com/in/emirates-printing-forms" target="_blank" rel="noopener" class="of-social">
+          <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="page-banner">
+  <div class="container">
+    <h1>Vision & Mission</h1>
+    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><a routerLink="/about-us">About Us</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Vision & Mission</span></nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="vm-grid">
+      <!-- Vision -->
+      <div class="vm-card vision-card">
+        <div class="vm-icon"><i class="fas fa-eye"></i></div>
+        <h2>Our Vision</h2>
+        <div class="divider"></div>
+        <p>To be the most trusted and innovative flexible packaging and labelling company in the Middle East and Africa, setting the benchmark for quality, sustainability, and customer satisfaction in the printing industry.</p>
+        <p>We aspire to lead through technology and creativity, delivering packaging solutions that make a meaningful difference for our clients' brands and the environment.</p>
+        <div class="vm-points">
+          <div class="vm-point"><i class="fas fa-check"></i> Regional market leader in packaging</div>
+          <div class="vm-point"><i class="fas fa-check"></i> Benchmark for quality standards</div>
+          <div class="vm-point"><i class="fas fa-check"></i> Innovative sustainable solutions</div>
+        </div>
+      </div>
+      <!-- Mission -->
+      <div class="vm-card mission-card">
+        <div class="vm-icon mission"><i class="fas fa-bullseye"></i></div>
+        <h2>Our Mission</h2>
+        <div class="divider"></div>
+        <p>To deliver excellent flexible packaging and labelling products that exceed customer expectations, while maintaining the highest standards of quality, reliability, and environmental responsibility.</p>
+        <p>We are committed to continuous improvement, investing in our team, technology, and processes to provide solutions that help our clients succeed in competitive markets.</p>
+        <div class="vm-points">
+          <div class="vm-point"><i class="fas fa-check"></i> Exceed customer expectations</div>
+          <div class="vm-point"><i class="fas fa-check"></i> Continuous process improvement</div>
+          <div class="vm-point"><i class="fas fa-check"></i> Environmental responsibility</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <span class="section-badge">What Drives Us</span>
+      <h2 class="section-title">Our Core Values</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="values-grid">
+      @for (val of values; track val.title) {
+        <div class="value-card">
+          <div class="value-icon"><i [class]="val.icon"></i></div>
+          <h4>{{ val.title }}</h4>
+          <p>{{ val.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

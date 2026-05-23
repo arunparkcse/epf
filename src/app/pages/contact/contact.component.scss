@@ -1,0 +1,249 @@
+/* =========================================================
+   CONTACT — Editorial Style
+   ========================================================= */
+
+/* Info cards strip */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+
+  @media (max-width: 1023px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 599px)  { grid-template-columns: 1fr 1fr; }
+}
+
+.contact-info-card {
+  padding: 40px 32px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  transition: background 0.25s;
+
+  &:last-child { border-right: none; }
+  &:hover { background: var(--off-white); }
+
+  @media (max-width: 1023px) {
+    &:nth-child(2) { border-right: none; }
+    &:nth-child(3) { border-top: 1px solid var(--line); }
+  }
+}
+
+.ci-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+  transition: background 0.2s, color 0.2s;
+
+  .contact-info-card:hover & {
+    background: var(--gold);
+    color: var(--white);
+    border-color: var(--gold);
+  }
+}
+
+.contact-info-card h5 {
+  font-family: var(--font-cond);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.contact-info-card a,
+.contact-info-card span {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-text);
+  transition: color 0.2s;
+
+  &:hover { color: var(--gold-dark); }
+}
+
+/* Form section grid */
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr; }
+}
+
+.contact-img-side {
+  position: sticky;
+  top: 100px;
+
+  img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 1023px) { display: none; }
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 599px) { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  input,
+  textarea {
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    background: var(--off-white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--black);
+    border-radius: 0;
+    transition: border-color 0.2s, background 0.2s;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    &::placeholder { color: var(--gray-mid); }
+  }
+}
+
+.success-msg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  font-family: var(--font-cond);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--black);
+
+  i { font-size: 16px; color: var(--gold-dark); }
+}
+
+/* Offices grid */
+.offices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.office-card {
+  background: var(--white);
+  overflow: hidden;
+  transition: background 0.25s;
+
+  &:hover { background: var(--off-white); }
+}
+
+.office-map iframe {
+  width: 100%;
+  height: 280px;
+  border: none;
+  display: block;
+}
+
+.office-details {
+  padding: 36px;
+
+  @media (max-width: 767px) { padding: 24px; }
+}
+
+.office-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--black);
+  }
+}
+
+.office-badge {
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  border: 1px solid var(--gold);
+  flex-shrink: 0;
+}
+
+.office-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.oi {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  i {
+    color: var(--gold);
+    margin-top: 3px;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  span,
+  a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--gray-text);
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+
+  a:hover { color: var(--gold-dark); }
+}

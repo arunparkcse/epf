@@ -1,0 +1,239 @@
+<!-- ===================================================
+     HERO SLIDER — full viewport, editorial
+     =================================================== -->
+<section class="hero">
+  @for (slide of heroSlides; track slide.heading; let i = $index) {
+    <div class="hero-slide" [class.active]="currentSlide() === i">
+      <div class="hero-bg" [style.backgroundImage]="'url(' + slide.image + ')'"></div>
+      <div class="hero-scrim"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="hero-eyebrow">{{ slide.tag }}</p>
+          <h1 class="hero-heading">
+            {{ slide.heading }}<br/>
+            <em>{{ slide.highlight }}</em>
+          </h1>
+          <p class="hero-sub">{{ slide.sub }}</p>
+          <div class="hero-actions">
+            <a routerLink="/flexible-packaging" class="btn-dark">Explore Products <i class="fas fa-arrow-right"></i></a>
+            <a routerLink="/contact-us" class="btn-outline-light">Get a Quote</a>
+          </div>
+        </div>
+        <!-- Slide counter -->
+        <div class="hero-counter">
+          <span class="hero-count-current">{{ (currentSlide() + 1).toString().padStart(2, '0') }}</span>
+          <span class="hero-count-sep"></span>
+          <span class="hero-count-total">{{ heroSlides.length.toString().padStart(2, '0') }}</span>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Arrows -->
+  <button class="hero-arrow hero-prev" (click)="prevSlide()" aria-label="Previous">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <button class="hero-arrow hero-next" (click)="nextSlide()" aria-label="Next">
+    <i class="fas fa-arrow-right"></i>
+  </button>
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    @for (s of heroSlides; track s.heading; let i = $index) {
+      <button class="hero-dot" [class.active]="currentSlide() === i" (click)="goToSlide(i)" [attr.aria-label]="'Slide ' + (i+1)"></button>
+    }
+  </div>
+</section>
+
+<!-- ===================================================
+     STATS STRIP
+     =================================================== -->
+<section class="stats-strip">
+  @for (stat of stats; track stat.label) {
+    <div class="stat-item">
+      <strong class="stat-value">{{ stat.value }}</strong>
+      <span class="stat-label">{{ stat.label }}</span>
+    </div>
+  }
+</section>
+
+<!-- ===================================================
+     ABOUT INTRO
+     =================================================== -->
+<section class="section about-section">
+  <div class="about-grid">
+    <!-- Image mosaic -->
+    <div class="about-images">
+      <div class="about-img-main">
+        <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-11.jpg" alt="EPF Facility" loading="lazy"/>
+      </div>
+      <div class="about-img-side">
+        <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-5.jpg" alt="EPF Production" loading="lazy"/>
+        <div class="exp-badge">
+          <strong>35+</strong>
+          <span>Years of<br/>Excellence</span>
+        </div>
+      </div>
+    </div>
+    <!-- Text -->
+    <div class="about-content">
+      <p class="eyebrow">Emirates Printing Forms</p>
+      <h2 class="section-title">Delivering Expert<br/>Printing Solutions<br/><em>Since 1989</em></h2>
+      <div class="rule rule-gold"></div>
+      <p class="body-text">EPF is a leading printing company with a modern production facility in Kizad, Abu Dhabi and a sales office in Dubai. Since 1989, EPF has earned a reputation as one of the top manufacturers in the UAE — specializing in flexible packaging and labelling products for the Middle East, GCC, and Africa.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <div>
+            <h5 class="pillar-title">Internationally Certified</h5>
+            <p class="pillar-desc">Multiple ISO certifications highlighting our commitment to global standards.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <div>
+            <h5 class="pillar-title">Industry Leaders Since 1989</h5>
+            <p class="pillar-desc">Advanced facilities, experienced team, relentless dedication to quality.</p>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/about-us" class="btn-dark">Discover More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     PRODUCTS — editorial cards
+     =================================================== -->
+<section class="section section-alt products-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="eyebrow">Our Products</p>
+      <h2 class="section-title">Comprehensive<br/>Printing Solutions</h2>
+    </div>
+    <p class="section-intro">EPF offers an extensive array of printing services encompassing Flexible Packaging, Self-Adhesive Labels, Shrink Sleeves, and In-Mold Labels production.</p>
+  </div>
+  <div class="products-grid">
+    @for (product of products; track product.title; let i = $index) {
+      <article class="product-card">
+        <div class="product-card-img">
+          <img [src]="product.image" [alt]="product.title" loading="lazy"/>
+          <span class="product-num">{{ (i+1).toString().padStart(2,'0') }}</span>
+        </div>
+        <div class="product-card-body">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <p class="product-desc">{{ product.desc }}</p>
+          <div class="product-tags">
+            @for (tag of product.tags; track tag) {
+              <span class="tag-chip">{{ tag }}</span>
+            }
+          </div>
+          <a [routerLink]="product.link" class="product-cta">
+            View Products <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- ===================================================
+     INDUSTRIES
+     =================================================== -->
+<section class="section industries-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="eyebrow">Industries We Serve</p>
+      <h2 class="section-title">Trusted Across<br/>12+ Industries</h2>
+    </div>
+    <p class="section-intro">Our flexible packaging and labels serve various industries, helping clients choose the ideal packaging for their market.</p>
+  </div>
+  <div class="industries-grid">
+    @for (ind of industries; track ind.name; let i = $index) {
+      <a [routerLink]="ind.link" class="industry-item">
+        <span class="industry-num">{{ (i+1).toString().padStart(2,'0') }}</span>
+        <div class="industry-icon">
+          <img [src]="ind.icon" [alt]="ind.name" loading="lazy"/>
+        </div>
+        <span class="industry-name">{{ ind.name }}</span>
+      </a>
+    }
+  </div>
+</section>
+
+<!-- ===================================================
+     PROCESS — numbered steps
+     =================================================== -->
+<section class="section section-alt process-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="eyebrow">From Proof To Delivery</p>
+      <h2 class="section-title">Printing<br/>Made Easy</h2>
+    </div>
+    <p class="section-intro">Our comprehensive solutions guide your project from initial design through to final delivery.</p>
+  </div>
+  <div class="process-grid">
+    @for (step of processSteps; track step.num) {
+      <div class="process-step">
+        <div class="process-step-head">
+          <span class="process-num">{{ step.num }}</span>
+          <div class="process-icon">
+            <img [src]="step.image" [alt]="step.title" loading="lazy"/>
+          </div>
+        </div>
+        <div class="rule" style="margin: 20px 0;"></div>
+        <h4 class="process-title">{{ step.title }}</h4>
+        <p class="process-desc">{{ step.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ===================================================
+     CLIENTS MARQUEE
+     =================================================== -->
+<section class="section clients-section">
+  <div class="section-inner clients-head">
+    <div class="section-head">
+      <p class="eyebrow">Our Valued Clients</p>
+      <h2 class="section-title">Trusted By<br/>Industry Leaders</h2>
+    </div>
+    <p class="section-intro">For over 35 years, we have consistently exceeded expectations providing top-quality printing services for our prestigious clients across the Middle East.</p>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      @for (client of clients; track client.src) {
+        <div class="client-item">
+          <img [src]="client.src" [alt]="client.alt" loading="lazy"/>
+        </div>
+      }
+      @for (client of clients; track client.src) {
+        <div class="client-item">
+          <img [src]="client.src" [alt]="client.alt" loading="lazy"/>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     CTA — editorial, warm not dark-black
+     =================================================== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <p class="eyebrow" style="color: var(--gold);">Ready To Start?</p>
+      <h2 class="display-title" style="color: var(--white);">
+        Let's Create Something<br/><em>Extraordinary Together</em>
+      </h2>
+      <p class="body-text" style="color: rgba(255,255,255,0.6); margin-top: 16px;">Contact our expert team today and get a customized quote for your packaging needs.</p>
+    </div>
+    <div class="cta-actions">
+      <a routerLink="/contact-us" class="btn-gold">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:+97126730800" class="cta-tel">
+        <i class="fas fa-phone"></i>
+        <span>+971 2 673 0800</span>
+      </a>
+    </div>
+  </div>
+</section>

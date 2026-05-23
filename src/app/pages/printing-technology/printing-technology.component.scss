@@ -1,0 +1,149 @@
+/* =========================================================
+   PRINTING TECHNOLOGY — Editorial Style
+   ========================================================= */
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 599px)  { grid-template-columns: 1fr; }
+}
+
+.tech-card {
+  background: var(--white);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+
+  &:hover {
+    background: var(--off-white);
+    .tech-icon { background: var(--black); color: var(--white); border-color: var(--black); }
+    &::after { transform: scaleX(1); }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+}
+
+.tech-number {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+  font-weight: 400;
+  opacity: 0.2;
+  user-select: none;
+  pointer-events: none;
+}
+
+.tech-icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.tech-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.tech-card p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-text);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.tech-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+
+    i { color: var(--gold); font-size: 10px; }
+  }
+}
+
+/* Facility banner */
+.facility-banner {
+  position: relative;
+  padding: 120px 0;
+  background: url('https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-4.jpg') center/cover no-repeat;
+  text-align: center;
+}
+
+.facility-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 16, 0.72);
+}
+
+.facility-content {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.5vw, 52px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 20px;
+
+    em { color: var(--gold); }
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+  }
+}

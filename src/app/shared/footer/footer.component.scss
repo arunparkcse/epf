@@ -1,0 +1,228 @@
+/* =========================================================
+   FOOTER — Mexdot Editorial Style
+   ========================================================= */
+
+.site-footer {
+  background: var(--black);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Top rule ---------- */
+.footer-rule {
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+/* ---------- Footer body ---------- */
+.footer-body {
+  padding: 80px 80px 60px;
+
+  @media (max-width: 1023px) { padding: 60px 48px; }
+  @media (max-width: 767px)  { padding: 48px 24px; }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 64px;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* ---------- Brand ---------- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-logo {
+  display: inline-block;
+  text-decoration: none;
+
+  img {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+}
+
+.footer-tagline {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  max-width: 300px;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  i {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--gold);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  &:hover {
+    color: #fff;
+    i { border-color: var(--gold); }
+  }
+}
+
+/* ---------- Footer column ---------- */
+.footer-col { display: flex; flex-direction: column; gap: 20px; }
+
+.footer-col-title {
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-badge {
+  display: inline-block;
+  font-size: 9px;
+  padding: 2px 8px;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* ---------- Footer links list ---------- */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+    padding-left: 14px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.2s;
+    }
+
+    &:hover {
+      color: #fff;
+      &::before { width: 8px; }
+    }
+  }
+}
+
+/* ---------- Contact info ---------- */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover { color: var(--gold); }
+  }
+}
+
+/* ---------- Bottom bar ---------- */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 24px 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  @media (max-width: 1023px) { padding: 24px 48px; }
+  @media (max-width: 767px)  {
+    padding: 24px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom-right {
+  display: flex;
+  gap: 24px;
+
+  a {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover { color: rgba(255, 255, 255, 0.8); }
+  }
+}

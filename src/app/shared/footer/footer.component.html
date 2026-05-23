@@ -1,0 +1,66 @@
+<footer class="site-footer">
+
+  <!-- Top rule -->
+  <div class="footer-rule"></div>
+
+  <!-- Main footer body -->
+  <div class="footer-body">
+    <div class="footer-grid">
+
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a routerLink="/" class="footer-logo">
+          <img src="https://emiratesprintingforms.com/wp-content/uploads/2021/10/logo-default.png" alt="Emirates Printing Forms" />
+        </a>
+        <p class="footer-tagline">
+          Established 1989 in Abu Dhabi — a market leader in flexible packaging &amp; labelling solutions serving the Middle East, GCC, and Africa.
+        </p>
+        <a href="https://www.linkedin.com/in/emirates-printing-forms" target="_blank" rel="noopener" class="footer-social">
+          <i class="fab fa-linkedin-in"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <!-- Pages column -->
+      <div class="footer-col">
+        <p class="footer-col-title">Pages</p>
+        <ul class="footer-links">
+          @for (link of quickLinks; track link.label) {
+            <li><a [routerLink]="link.link">{{ link.label }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <!-- Abu Dhabi column -->
+      <div class="footer-col">
+        <p class="footer-col-title">Abu Dhabi</p>
+        <div class="footer-contact">
+          <p>P.O. Box 4678, Abu Dhabi, U.A.E.</p>
+          <a href="tel:+97126730800">+971 2 673 0800</a>
+          <a href="mailto:info@epfe.ae">info&#64;epfe.ae</a>
+        </div>
+      </div>
+
+      <!-- Dubai column -->
+      <div class="footer-col">
+        <p class="footer-col-title">Dubai <span class="footer-badge">Sales</span></p>
+        <div class="footer-contact">
+          <p>P.O. Box 27222, Dubai, U.A.E.</p>
+          <a href="tel:+97142827877">+971 4 282 7877</a>
+          <a href="mailto:info@epfe.ae">info&#64;epfe.ae</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; {{ currentYear }} Emirates Printing Forms LLC. All rights reserved.</span>
+    <div class="footer-bottom-right">
+      <a href="https://linktr.ee/emiratesprintingforms" target="_blank" rel="noopener">Linktree</a>
+      <a routerLink="/contact-us">Privacy</a>
+    </div>
+  </div>
+
+</footer>

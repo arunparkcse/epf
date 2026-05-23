@@ -1,0 +1,147 @@
+/* =========================================================
+   LABELS — Editorial Style
+   ========================================================= */
+
+/* Intro grid */
+.product-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.product-intro-img {
+  img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.intro-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Labels cards grid */
+.labels-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+
+  @media (max-width: 767px) { grid-template-columns: 1fr; }
+}
+
+.label-card {
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.25s;
+
+  &:hover,
+  &.active {
+    background: var(--off-white);
+
+    .lcard-img img { transform: scale(1.04); }
+    .lcard-link { color: var(--gold-dark); }
+    .lcard-link i { transform: translateX(5px); }
+  }
+}
+
+.lcard-img {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
+}
+
+.lcard-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.lcard-body { padding: 36px; }
+
+.lcard-body h4 {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 26px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.lcard-body p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--gray-text);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.feat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--black);
+
+    i {
+      color: var(--gold);
+      margin-top: 3px;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.lcard-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  i {
+    font-size: 11px;
+    transition: transform 0.3s;
+  }
+}

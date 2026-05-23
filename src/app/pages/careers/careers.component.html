@@ -1,0 +1,66 @@
+<div class="page-banner">
+  <div class="container">
+    <h1>Careers</h1>
+    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Careers</span></nav>
+  </div>
+</div>
+
+<!-- Join Us -->
+<section class="section">
+  <div class="container careers-hero-grid">
+    <div class="careers-img">
+      <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-4.jpg" alt="EPF Team" loading="lazy"/>
+      <div class="careers-badge"><i class="fas fa-users"></i><span>Join Our Team</span></div>
+    </div>
+    <div class="careers-text">
+      <span class="section-badge">Work With Us</span>
+      <h2 class="section-title">Build Your Career With <span style="color:var(--primary)">EPF</span></h2>
+      <div class="divider"></div>
+      <p>At Emirates Printing Forms, we believe our people are our greatest asset. We're always looking for talented, motivated individuals to join our growing team at our production facility in Kizad, Abu Dhabi, and our sales office in Dubai.</p>
+      <p>With over 35 years in the industry, EPF offers a dynamic work environment where you can grow professionally while contributing to world-class flexible packaging and labelling solutions.</p>
+      <a href="mailto:info@epfe.ae?subject=Career Enquiry" class="btn btn-primary">Send Your CV <i class="fas fa-paper-plane"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:56px">
+      <span class="section-badge">Why Join EPF</span>
+      <h2 class="section-title">What We Offer</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="benefits-grid">
+      @for (b of benefits; track b.title) {
+        <div class="benefit-card">
+          <div class="benefit-icon"><i [class]="b.icon"></i></div>
+          <h4>{{ b.title }}</h4>
+          <p>{{ b.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Open Roles CTA -->
+<section class="section">
+  <div class="container">
+    <div class="open-roles-card">
+      <div class="or-text">
+        <span class="section-badge">Opportunities</span>
+        <h3>No Specific Openings Listed?</h3>
+        <p>We welcome speculative applications. If you're passionate about the printing and packaging industry, send us your CV and we'll keep your application on file for future opportunities.</p>
+      </div>
+      <div class="or-actions">
+        <a href="mailto:info@epfe.ae?subject=Career - Speculative Application" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> Email Your CV
+        </a>
+        <div class="or-contact">
+          <span>or call us on</span>
+          <a href="tel:+97126730800">+971 2 673 0800</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

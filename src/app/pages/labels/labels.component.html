@@ -1,0 +1,59 @@
+<div class="page-banner">
+  <div class="container">
+    <h1>Labels</h1>
+    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><a routerLink="/labels">Products</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Labels</span></nav>
+  </div>
+</div>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container product-intro-grid">
+    <div class="product-intro-img">
+      <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/Labels.png" alt="Labels" loading="lazy"/>
+    </div>
+    <div class="product-intro-text">
+      <span class="section-badge">Our Products</span>
+      <h2 class="section-title">Premium Quality <span style="color:var(--primary)">Labels</span></h2>
+      <div class="divider"></div>
+      <p>Elevate your product's visual appeal and brand identity with our top-quality labels, available in various types including wrap-around, self-adhesive, shrink sleeves, and InMold Labeling.</p>
+      <p>All designed to highlight essential information and leave a lasting impression on your customers. Our labels combine aesthetic excellence with functional performance.</p>
+      <div class="intro-actions">
+        <a routerLink="/contact-us" class="btn btn-primary">Get Started Today <i class="fas fa-arrow-right"></i></a>
+        <a href="https://emiratesprintingforms.com/company-profile/" target="_blank" rel="noopener" class="btn btn-outline">Download Profile <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <span class="section-badge">Label Types</span>
+      <h2 class="section-title">Our Label <span style="color:var(--primary)">Solutions</span></h2>
+      <div class="divider center"></div>
+    </div>
+
+    <!-- Cards -->
+    <div class="labels-cards">
+      @for (cat of categories; track cat.id; let i = $index) {
+        <div class="label-card" [class.active]="activeTab() === i" (click)="setTab(i)">
+          <div class="lcard-img">
+            <img [src]="cat.image" [alt]="cat.label" loading="lazy"/>
+            <div class="lcard-overlay"><i [class]="cat.icon"></i></div>
+          </div>
+          <div class="lcard-body">
+            <h4>{{ cat.label }}</h4>
+            <p>{{ cat.desc }}</p>
+            <ul class="feat-list">
+              @for (f of cat.features; track f) {
+                <li><i class="fas fa-check-circle"></i> {{ f }}</li>
+              }
+            </ul>
+            <a routerLink="/contact-us" class="lcard-link">Enquire <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

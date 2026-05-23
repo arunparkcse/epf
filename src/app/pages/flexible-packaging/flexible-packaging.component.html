@@ -1,0 +1,67 @@
+<div class="page-banner">
+  <div class="container">
+    <h1>Flexible Packaging</h1>
+    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><a routerLink="/flexible-packaging">Products</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Flexible Packaging</span></nav>
+  </div>
+</div>
+
+<!-- Intro -->
+<section class="section">
+  <div class="container product-intro-grid">
+    <div class="product-intro-img">
+      <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/10.png" alt="Flexible Packaging" loading="lazy"/>
+    </div>
+    <div class="product-intro-text">
+      <span class="section-badge">Our Products</span>
+      <h2 class="section-title">Innovative Flexible <span style="color:var(--primary)">Packaging Solutions</span></h2>
+      <div class="divider"></div>
+      <p>EPF excels in crafting innovative and sustainable flexible packaging solutions that not only capture consumer attention but also preserve product quality and extend shelf life across a wide range of industries.</p>
+      <p>Our commitment to providing excellent service through specialization in customizable packaging solutions, utilizing materials such as paper, plastic, and aluminum foil, has earned us the trust of businesses in various sectors as their partner.</p>
+      <div class="intro-actions">
+        <a routerLink="/contact-us" class="btn btn-primary">Get Started Today <i class="fas fa-arrow-right"></i></a>
+        <a href="https://emiratesprintingforms.com/company-profile/" target="_blank" rel="noopener" class="btn btn-outline">Download Profile <i class="fas fa-download"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:48px">
+      <span class="section-badge">Categories</span>
+      <h2 class="section-title">Flexible Packaging <span style="color:var(--primary)">Range</span></h2>
+      <div class="divider center"></div>
+    </div>
+
+    <!-- Tab Nav -->
+    <div class="product-tabs">
+      @for (cat of categories; track cat.id; let i = $index) {
+        <button class="prod-tab" [class.active]="activeTab() === i" (click)="setTab(i)">
+          <i [class]="cat.icon"></i> {{ cat.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Tab Content -->
+    @for (cat of categories; track cat.id; let i = $index) {
+      @if (activeTab() === i) {
+        <div class="tab-panel">
+          <div class="tab-img">
+            <img [src]="cat.image" [alt]="cat.label" loading="lazy"/>
+          </div>
+          <div class="tab-body">
+            <h3>{{ cat.label }}</h3>
+            <p>{{ cat.desc }}</p>
+            <ul class="feat-list">
+              @for (f of cat.features; track f) {
+                <li><i class="fas fa-check-circle"></i> {{ f }}</li>
+              }
+            </ul>
+            <a routerLink="/contact-us" class="btn btn-primary" style="margin-top:24px">Enquire Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</section>
