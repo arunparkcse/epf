@@ -1,0 +1,372 @@
+/* =========================================================
+   COMPANY PROFILE — Editorial Style
+   ========================================================= */
+
+/* Banner override with image */
+.cp-banner {
+  background-image: url('https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-11.jpg');
+}
+
+/* Intro split */
+.cp-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.cp-intro-text {
+  .body-text { max-width: 100%; }
+}
+
+.cp-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Video embed */
+.cp-video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: var(--black);
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+/* Stats strip */
+.cp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  @media (max-width: 767px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cp-stat {
+  padding: 40px 32px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+
+  &:last-child { border-right: none; }
+
+  @media (max-width: 767px) {
+    &:nth-child(2) { border-right: none; }
+    &:nth-child(3) { border-top: 1px solid var(--line); }
+  }
+}
+
+.cp-stat-icon {
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.cp-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 52px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  line-height: 1;
+}
+
+.cp-stat-label {
+  font-family: var(--font-cond);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Capabilities grid */
+.cp-caps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+
+  @media (max-width: 1023px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 599px)  { grid-template-columns: 1fr; }
+}
+
+.cp-cap-card {
+  background: var(--white);
+  padding: 40px 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  transition: background 0.25s;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover {
+    background: var(--off-white);
+    &::after { transform: scaleX(1); }
+    .cp-cap-arrow { transform: translateX(4px); color: var(--gold-dark); }
+  }
+}
+
+.cp-cap-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+.cp-cap-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.cp-cap-title {
+  font-family: var(--font-cond);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin: 0;
+}
+
+.cp-cap-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--gray-text);
+  margin: 0;
+  flex: 1;
+}
+
+.cp-cap-arrow {
+  font-size: 12px;
+  color: var(--gray-mid);
+  transition: transform 0.3s, color 0.2s;
+  align-self: flex-start;
+}
+
+/* Certifications */
+.cp-cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.cp-certs {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.cp-cert-card {
+  background: var(--white);
+  padding: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  transition: background 0.25s;
+
+  &:hover { background: var(--off-white); }
+}
+
+.cp-cert-icon {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.cp-cert-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 4px;
+}
+
+.cp-cert-body {
+  font-family: var(--font-cond);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+/* Facility image strip */
+.cp-facility-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--line);
+
+  @media (max-width: 767px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cp-facility-img {
+  overflow: hidden;
+  aspect-ratio: 16/10;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
+
+  &:hover img { transform: scale(1.04); }
+}
+
+/* Offices */
+.cp-offices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+
+  @media (max-width: 1023px) { grid-template-columns: 1fr; }
+}
+
+.cp-office-card {
+  background: var(--white);
+  padding: 48px 40px;
+  transition: background 0.25s;
+
+  &:hover { background: var(--off-white); }
+
+  .eyebrow { margin-bottom: 12px; }
+}
+
+.cp-office-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 16px;
+}
+
+.cp-office-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.cp-oi {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  i {
+    color: var(--gold);
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  span, a {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--gray-text);
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a:hover { color: var(--gold-dark); }
+}
+
+/* QR card */
+.cp-qr-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  margin-top: 24px;
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border: 1px solid var(--line);
+    padding: 8px;
+    background: var(--white);
+  }
+
+  span {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    transition: color 0.2s;
+  }
+
+  &:hover span { color: var(--black); }
+}

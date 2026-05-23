@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/printing-technology/printing-technology.component').then(m => m.PrintingTechnologyComponent)
   },
   {
+    path: 'company-profile',
+    loadComponent: () => import('./pages/company-profile/company-profile.component').then(m => m.CompanyProfileComponent)
+  },
+  {
     path: 'flexible-packaging',
     loadComponent: () => import('./pages/flexible-packaging/flexible-packaging.component').then(m => m.FlexiblePackagingComponent)
   },

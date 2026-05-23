@@ -742,6 +742,137 @@
   &:hover { color: rgba(255, 255, 255, 0.9); }
 }
 
+/* ===== VIDEO SHOWCASE ===== */
+.video-section {
+  background: var(--black);
+  padding: 100px 0;
+}
+
+.video-section-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: 1023px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 599px) { padding: 0 20px; }
+}
+
+.video-section-text {
+  .rule-gold { margin: 24px 0 28px; }
+}
+
+.video-section-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video-embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.video-embed-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-cond);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+
+  i { color: var(--gold); font-size: 18px; }
+}
+
+/* ===== FACILITY PARALLAX STRIP ===== */
+.facility-strip {
+  position: relative;
+  padding: 120px 0;
+  background: url('https://emiratesprintingforms.com/wp-content/uploads/2023/11/expertise-bg-1-1024x561.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+
+  @media (max-width: 1023px) {
+    background-attachment: scroll;
+    padding: 80px 0;
+  }
+}
+
+.facility-strip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(17,17,16,0.88) 0%, rgba(17,17,16,0.55) 100%);
+}
+
+.facility-strip-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 48px;
+
+  @media (max-width: 1023px) { padding: 0 32px; }
+  @media (max-width: 599px)  { padding: 0 20px; }
+}
+
+.facility-strip-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+
+  @media (max-width: 599px) { gap: 28px; }
+}
+
+.fstrip-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+
+  strong {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  span {
+    font-family: var(--font-cond);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+}
+
 /* ===== BUTTON HELPERS (LOCAL OVERRIDES) ===== */
 .btn-outline-light {
   display: inline-flex;

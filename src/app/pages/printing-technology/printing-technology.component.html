@@ -1,16 +1,63 @@
+<!-- Page Banner -->
 <div class="page-banner">
   <div class="container">
     <h1>Printing Technology</h1>
-    <nav class="breadcrumb"><a routerLink="/">Home</a><i class="fas fa-chevron-right" style="font-size:10px"></i><a routerLink="/about-us">About Us</a><i class="fas fa-chevron-right" style="font-size:10px"></i><span>Printing Technology</span></nav>
+    <nav class="breadcrumb">
+      <a routerLink="/">Home</a>
+      <i class="fas fa-chevron-right" style="font-size:10px"></i>
+      <a routerLink="/about-us">About Us</a>
+      <i class="fas fa-chevron-right" style="font-size:10px"></i>
+      <span>Printing Technology</span>
+    </nav>
   </div>
 </div>
 
-<section class="section">
+<!-- ===== INTRO + VIDEO ===== -->
+<section class="section pt-intro-section">
+  <div class="container pt-intro-grid">
+    <div class="pt-intro-text">
+      <p class="eyebrow">State-Of-The-Art</p>
+      <h2 class="section-title">34+ Years Of<br/>Innovation In<br/><em>Printing</em></h2>
+      <div class="rule rule-gold"></div>
+      <p class="body-text">At EPF, our core mission is to push the boundaries of printing through cutting-edge technology and innovation. We invest in state-of-the-art equipment and stay ahead of industry advancements to ensure our print materials exceed expectations.</p>
+      <p class="body-text" style="margin-top:16px;">With our advanced facilities, experienced team, and dedication to quality, EPF strives to exceed customer expectations and maintain our position as one of the leaders in the printing industry.</p>
+    </div>
+    <div class="pt-video-col">
+      <div class="pt-video-wrap">
+        <iframe [src]="videoUrl"
+          title="Emirates Printing Forms — Technology"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="pt-video-caption">
+        <i class="fas fa-play-circle"></i>
+        <span>Watch our facility in action</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FACILITY IMAGE GRID ===== -->
+<div class="pt-facility-grid">
+  @for (img of facilityImages; track img.alt) {
+    <div class="pt-facility-img">
+      <img [src]="img.src" [alt]="img.alt" loading="lazy"/>
+      <div class="pt-facility-overlay">
+        <span>{{ img.label }}</span>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- ===== TECHNOLOGY CARDS ===== -->
+<section class="section section-alt">
   <div class="container">
-    <div class="text-center" style="margin-bottom:60px">
-      <span class="section-badge">State-Of-The-Art</span>
-      <h2 class="section-title">Our <span style="color:var(--primary)">Printing Technologies</span></h2>
-      <div class="divider center"></div>
+    <div class="text-center" style="margin-bottom:64px;">
+      <p class="eyebrow">Our Capabilities</p>
+      <h2 class="section-title">Our Printing<br/><em>Technologies</em></h2>
+      <div class="rule-gold center"></div>
       <p class="section-subtitle">EPF invests in the latest printing and converting technologies, ensuring we deliver the highest quality flexible packaging and label solutions to our clients.</p>
     </div>
     <div class="tech-grid">
@@ -31,12 +78,12 @@
   </div>
 </section>
 
-<!-- Facility Banner -->
+<!-- ===== FACILITY BANNER ===== -->
 <section class="facility-banner">
   <div class="facility-overlay"></div>
   <div class="container facility-content">
-    <span class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;">Kizad, Abu Dhabi</span>
-    <h2>Modern Production Facility</h2>
+    <p class="eyebrow" style="color:var(--gold)">Kizad, Abu Dhabi</p>
+    <h2>Modern Production<br/><em>Facility</em></h2>
     <p>Our state-of-the-art production facility in Kizad, Abu Dhabi is equipped with the latest printing and converting equipment operated by highly skilled professionals.</p>
     <a routerLink="/contact-us" class="btn btn-white">Schedule a Visit <i class="fas fa-arrow-right"></i></a>
   </div>

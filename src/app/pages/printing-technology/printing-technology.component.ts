@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-printing-technology',
@@ -9,6 +10,16 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./printing-technology.component.scss']
 })
 export class PrintingTechnologyComponent {
+
+  videoUrl: SafeResourceUrl;
+
+  facilityImages = [
+    { src: 'https://emiratesprintingforms.com/wp-content/uploads/2023/11/expertise-bg-1-1024x561.jpg', alt: 'EPF Production Line 1', label: 'Production Line' },
+    { src: 'https://emiratesprintingforms.com/wp-content/uploads/2023/11/expertise-bg-5-1024x561.jpg', alt: 'EPF Facility 2', label: 'Printing Presses' },
+    { src: 'https://emiratesprintingforms.com/wp-content/uploads/2023/11/expertise-bg-3-1024x561.jpg', alt: 'EPF Facility 3', label: 'Converting Equipment' },
+    { src: 'https://emiratesprintingforms.com/wp-content/uploads/2023/11/expertise-bg-4-1024x561.jpg', alt: 'EPF Facility 4', label: 'Quality Control' }
+  ];
+
   technologies = [
     {
       title: 'Rotogravure Printing',
@@ -47,4 +58,10 @@ export class PrintingTechnologyComponent {
       icon: 'fas fa-flask'
     }
   ];
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/S3LQ3DKEWWY?rel=0&modestbranding=1'
+    );
+  }
 }

@@ -20,6 +20,7 @@ export class AboutComponent {
     { label: 'Company Overview', link: '/about-us', icon: 'fas fa-building' },
     { label: 'Vision & Mission', link: '/vision-and-mission', icon: 'fas fa-eye' },
     { label: 'Certifications', link: '/certifications', icon: 'fas fa-certificate' },
-    { label: 'Printing Technology', link: '/printing-technology', icon: 'fas fa-cogs' }
+    { label: 'Printing Technology', link: '/printing-technology', icon: 'fas fa-cogs' },
+    { label: 'Company Profile', link: '/company-profile', icon: 'fas fa-file-alt' }
   ];
 }

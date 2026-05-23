@@ -219,25 +219,24 @@ ul { list-style: none; }
 
 /* ---- Page Hero Banner (inner pages) ---- */
 .page-banner {
-  padding: 110px 0 60px;
-  background: var(--off-white);
+  padding: 160px 0 80px;
+  background-color: var(--black);
+  background-size: cover;
+  background-position: center;
   border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
 
-  &::after {
+  /* Dark scrim over background image */
+  &::before {
     content: '';
     position: absolute;
-    right: 8%;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-cond);
-    font-size: 180px;
-    font-weight: 800;
-    color: var(--cream);
-    line-height: 1;
-    letter-spacing: -6px;
-    pointer-events: none;
+    inset: 0;
+    background: linear-gradient(105deg,
+      rgba(17,17,16,0.80) 0%,
+      rgba(17,17,16,0.55) 60%,
+      rgba(17,17,16,0.35) 100%);
+    z-index: 0;
   }
 
   .container { position: relative; z-index: 1; }
@@ -246,8 +245,9 @@ ul { list-style: none; }
     font-family: var(--font-display);
     font-size: clamp(36px, 6vw, 72px);
     font-weight: 400;
+    font-style: italic;
     letter-spacing: -0.02em;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 16px;
   }
 
@@ -260,8 +260,9 @@ ul { list-style: none; }
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: var(--gray-mid);
+    color: rgba(255,255,255,0.55);
 
+    a { color: rgba(255,255,255,0.55); transition: color 0.2s; }
     a:hover { color: var(--gold); }
     span { color: var(--gold); }
     i { font-size: 8px; }

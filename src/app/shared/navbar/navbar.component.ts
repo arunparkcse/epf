@@ -25,7 +25,8 @@ export class NavbarComponent implements OnInit {
         { label: 'Company Overview', link: '/about-us' },
         { label: 'Vision & Mission', link: '/vision-and-mission' },
         { label: 'Certifications', link: '/certifications' },
-        { label: 'Printing Technology', link: '/printing-technology' }
+        { label: 'Printing Technology', link: '/printing-technology' },
+        { label: 'Company Profile', link: '/company-profile' }
       ]
     },
     {

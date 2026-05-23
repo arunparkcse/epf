@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit, OnDestroy {
   currentSlide = signal(0);
   private slideInterval: ReturnType<typeof setInterval> | null = null;
+  videoUrl: SafeResourceUrl;
 
   heroSlides = [
     {
@@ -87,6 +89,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     src: `https://emiratesprintingforms.com/wp-content/uploads/2023/11/client-${i+1}.png`,
     alt: `Client ${i+1}`
   }));
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/S3LQ3DKEWWY?rel=0&modestbranding=1&autoplay=0'
+    );
+  }
 
   ngOnInit() {
     this.startSlider();

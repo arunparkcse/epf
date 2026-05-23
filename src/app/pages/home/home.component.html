@@ -190,6 +190,61 @@
 </section>
 
 <!-- ===================================================
+     VIDEO SHOWCASE
+     =================================================== -->
+<section class="video-section">
+  <div class="video-section-inner">
+    <div class="video-section-text">
+      <p class="eyebrow" style="color:var(--gold)">Inside EPF</p>
+      <h2 class="display-title" style="color:var(--white)">See Our Facility<br/><em>In Action</em></h2>
+      <div class="rule rule-gold"></div>
+      <p class="body-text" style="color:rgba(255,255,255,0.65)">Take a tour of our state-of-the-art production facility in Kizad, Abu Dhabi — rotogravure presses, lamination lines, slitting machines, and quality-control laboratory all under one roof.</p>
+      <a routerLink="/printing-technology" class="btn-outline-light" style="margin-top:32px; display:inline-flex; align-items:center; gap:8px;">
+        Explore Technology <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="video-section-frame">
+      <div class="video-embed-wrap">
+        <iframe [src]="videoUrl"
+          title="Emirates Printing Forms — Facility Tour"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-embed-caption">
+        <i class="fas fa-play-circle"></i>
+        <span>Emirates Printing Forms — Facility Tour, Kizad Abu Dhabi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================
+     FACILITY PARALLAX STRIP
+     =================================================== -->
+<div class="facility-strip">
+  <div class="facility-strip-overlay"></div>
+  <div class="facility-strip-content">
+    <p class="eyebrow" style="color:var(--gold)">Kizad, Abu Dhabi</p>
+    <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,52px);font-style:italic;font-weight:400;color:var(--white);margin-bottom:16px;">
+      Modern Production<br/><em style="color:var(--gold)">Facility</em>
+    </h2>
+    <p style="font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,0.7);max-width:540px;line-height:1.8;margin-bottom:36px;">
+      200,000+ sq ft of production space equipped with the latest printing and converting equipment, operated by a team of highly skilled professionals dedicated to excellence.
+    </p>
+    <div class="facility-strip-stats">
+      <div class="fstrip-stat"><strong>200K+</strong><span>Sq Ft Facility</span></div>
+      <div class="fstrip-stat"><strong>500+</strong><span>Skilled Staff</span></div>
+      <div class="fstrip-stat"><strong>24/7</strong><span>Production</span></div>
+    </div>
+    <a routerLink="/contact-us" class="btn-gold" style="margin-top:40px; display:inline-flex; align-items:center; gap:8px;">
+      Schedule a Visit <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+<!-- ===================================================
      CLIENTS MARQUEE
      =================================================== -->
 <section class="section clients-section">
