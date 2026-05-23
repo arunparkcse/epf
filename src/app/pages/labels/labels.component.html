@@ -8,10 +8,10 @@
 <!-- Intro -->
 <section class="section">
   <div class="container product-intro-grid">
-    <div class="product-intro-img">
+    <div class="product-intro-img" animateOnScroll="slide-right">
       <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/Labels.png" alt="Labels" loading="lazy"/>
     </div>
-    <div class="product-intro-text">
+    <div class="product-intro-text" animateOnScroll="slide-left" [delay]="150">
       <span class="section-badge">Our Products</span>
       <h2 class="section-title">Premium Quality <span style="color:var(--primary)">Labels</span></h2>
       <div class="divider"></div>
@@ -37,7 +37,7 @@
     <!-- Cards -->
     <div class="labels-cards">
       @for (cat of categories; track cat.id; let i = $index) {
-        <div class="label-card" [class.active]="activeTab() === i" (click)="setTab(i)">
+        <div class="label-card" [class.active]="activeTab() === i" (click)="setTab(i)" animateOnScroll [delay]="i * 100">
           <div class="lcard-img">
             <img [src]="cat.image" [alt]="cat.label" loading="lazy"/>
             <div class="lcard-overlay"><i [class]="cat.icon"></i></div>

@@ -9,7 +9,7 @@
   <div class="container">
     <div class="vm-grid">
       <!-- Vision -->
-      <div class="vm-card vision-card">
+      <div class="vm-card vision-card" animateOnScroll="slide-right">
         <div class="vm-icon"><i class="fas fa-eye"></i></div>
         <h2>Our Vision</h2>
         <div class="divider"></div>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <!-- Mission -->
-      <div class="vm-card mission-card">
+      <div class="vm-card mission-card" animateOnScroll="slide-left" [delay]="150">
         <div class="vm-icon mission"><i class="fas fa-bullseye"></i></div>
         <h2>Our Mission</h2>
         <div class="divider"></div>
@@ -47,8 +47,8 @@
       <div class="divider center"></div>
     </div>
     <div class="values-grid">
-      @for (val of values; track val.title) {
-        <div class="value-card">
+      @for (val of values; track val.title; let i = $index) {
+        <div class="value-card" animateOnScroll [delay]="i * 100">
           <div class="value-icon"><i [class]="val.icon"></i></div>
           <h4>{{ val.title }}</h4>
           <p>{{ val.desc }}</p>

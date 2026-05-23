@@ -15,7 +15,7 @@
 <!-- ===== INTRO — split layout ===== -->
 <section class="section cp-intro">
   <div class="container cp-intro-grid">
-    <div class="cp-intro-text">
+    <div class="cp-intro-text" animateOnScroll="slide-right">
       <p class="eyebrow">Emirates Printing Forms</p>
       <h2 class="section-title">A Market Leader<br/><em>Since 1989</em></h2>
       <div class="rule rule-gold"></div>
@@ -28,7 +28,7 @@
         <a routerLink="/contact-us" class="btn-outline-dark">Get in Touch</a>
       </div>
     </div>
-    <div class="cp-intro-media">
+    <div class="cp-intro-media" animateOnScroll="slide-left" [delay]="150">
       <div class="cp-video-wrap">
         <iframe [src]="videoUrl" title="Emirates Printing Forms — Company Video"
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,7 +59,7 @@
     </div>
     <div class="cp-caps-grid">
       @for (cap of capabilities; track cap.title; let i = $index) {
-        <a [routerLink]="cap.link" class="cp-cap-card">
+        <a [routerLink]="cap.link" class="cp-cap-card" animateOnScroll [delay]="(i % 3) * 100">
           <span class="cp-cap-num">{{ (i+1).toString().padStart(2,'0') }}</span>
           <div class="cp-cap-icon"><i [class]="cap.icon"></i></div>
           <h4 class="cp-cap-title">{{ cap.title }}</h4>
@@ -74,7 +74,7 @@
 <!-- ===== CERTIFICATIONS ===== -->
 <section class="section">
   <div class="container cp-cert-grid">
-    <div class="cp-cert-text">
+    <div class="cp-cert-text" animateOnScroll="slide-right">
       <p class="eyebrow">Quality Assured</p>
       <h2 class="section-title">Internationally<br/><em>Certified</em></h2>
       <div class="rule rule-gold"></div>
@@ -83,7 +83,7 @@
     </div>
     <div class="cp-certs">
       @for (cert of certifications; track cert.name) {
-        <div class="cp-cert-card">
+        <div class="cp-cert-card" animateOnScroll="slide-left" [delay]="150">
           <div class="cp-cert-icon"><i [class]="cert.icon"></i></div>
           <div>
             <h4 class="cp-cert-name">{{ cert.name }}</h4>

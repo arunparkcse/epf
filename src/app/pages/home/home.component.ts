@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, AnimateOnScrollDirective],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -15,7 +16,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   private slideInterval: ReturnType<typeof setInterval> | null = null;
   videoUrl: SafeResourceUrl;
 
-  heroSlides = [
+  heroSlides: { tag: string; heading: string; highlight: string; sub: string; image?: string; videoSrc?: string; }[] = [
+    {
+      tag: 'Our Facility',
+      heading: 'Crafted With Precision',
+      highlight: 'Inside Our Production',
+      sub: 'State-of-the-art rotogravure presses, lamination lines and quality control — all under one roof.',
+      videoSrc: 'https://emiratesprintingforms.com/wp-content/uploads/2023/11/EPF-Video-New.mp4'
+    },    
     {
       tag: 'Since 1989',
       heading: 'Your One Stop Solution For',
@@ -107,7 +115,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   startSlider() {
     this.slideInterval = setInterval(() => {
       this.currentSlide.update(v => (v + 1) % this.heroSlides.length);
-    }, 5000);
+    }, 24000);
   }
 
   goToSlide(i: number) { this.currentSlide.set(i); }

@@ -8,11 +8,11 @@
 <!-- Join Us -->
 <section class="section">
   <div class="container careers-hero-grid">
-    <div class="careers-img">
+    <div class="careers-img" animateOnScroll="slide-right">
       <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-4.jpg" alt="EPF Team" loading="lazy"/>
       <div class="careers-badge"><i class="fas fa-users"></i><span>Join Our Team</span></div>
     </div>
-    <div class="careers-text">
+    <div class="careers-text" animateOnScroll="slide-left" [delay]="150">
       <span class="section-badge">Work With Us</span>
       <h2 class="section-title">Build Your Career With <span style="color:var(--primary)">EPF</span></h2>
       <div class="divider"></div>
@@ -32,8 +32,8 @@
       <div class="divider center"></div>
     </div>
     <div class="benefits-grid">
-      @for (b of benefits; track b.title) {
-        <div class="benefit-card">
+      @for (b of benefits; track b.title; let i = $index) {
+        <div class="benefit-card" animateOnScroll [delay]="i * 100">
           <div class="benefit-icon"><i [class]="b.icon"></i></div>
           <h4>{{ b.title }}</h4>
           <p>{{ b.desc }}</p>
@@ -46,7 +46,7 @@
 <!-- Open Roles CTA -->
 <section class="section">
   <div class="container">
-    <div class="open-roles-card">
+    <div class="open-roles-card" animateOnScroll>
       <div class="or-text">
         <span class="section-badge">Opportunities</span>
         <h3>No Specific Openings Listed?</h3>

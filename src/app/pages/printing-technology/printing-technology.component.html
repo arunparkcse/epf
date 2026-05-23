@@ -15,14 +15,14 @@
 <!-- ===== INTRO + VIDEO ===== -->
 <section class="section pt-intro-section">
   <div class="container pt-intro-grid">
-    <div class="pt-intro-text">
+    <div class="pt-intro-text" animateOnScroll="slide-right">
       <p class="eyebrow">State-Of-The-Art</p>
       <h2 class="section-title">34+ Years Of<br/>Innovation In<br/><em>Printing</em></h2>
       <div class="rule rule-gold"></div>
       <p class="body-text">At EPF, our core mission is to push the boundaries of printing through cutting-edge technology and innovation. We invest in state-of-the-art equipment and stay ahead of industry advancements to ensure our print materials exceed expectations.</p>
       <p class="body-text" style="margin-top:16px;">With our advanced facilities, experienced team, and dedication to quality, EPF strives to exceed customer expectations and maintain our position as one of the leaders in the printing industry.</p>
     </div>
-    <div class="pt-video-col">
+    <div class="pt-video-col" animateOnScroll="slide-left" [delay]="150">
       <div class="pt-video-wrap">
         <iframe [src]="videoUrl"
           title="Emirates Printing Forms — Technology"
@@ -62,7 +62,7 @@
     </div>
     <div class="tech-grid">
       @for (tech of technologies; track tech.title; let i = $index) {
-        <div class="tech-card">
+        <div class="tech-card" animateOnScroll [delay]="(i % 3) * 100">
           <div class="tech-number">{{ (i+1).toString().padStart(2,'0') }}</div>
           <div class="tech-icon"><i [class]="tech.icon"></i></div>
           <h3>{{ tech.title }}</h3>

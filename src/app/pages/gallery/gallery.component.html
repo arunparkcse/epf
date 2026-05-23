@@ -24,8 +24,8 @@
 
     <!-- Grid -->
     <div class="gallery-grid">
-      @for (img of filtered; track img.src) {
-        <div class="gallery-item" (click)="openLightbox(img.src)">
+      @for (img of filtered; track img.src; let i = $index) {
+        <div class="gallery-item" (click)="openLightbox(img.src)" animateOnScroll="zoom-in" [delay]="(i % 4) * 75">
           <img [src]="img.src" [alt]="img.alt" loading="lazy"/>
           <div class="gallery-overlay">
             <i class="fas fa-expand"></i>

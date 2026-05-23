@@ -18,6 +18,16 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      .subscribe(() => {
+        // Bypass CSS scroll-behavior:smooth so the jump is truly instant
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto';
+        window.scrollTo(0, 0);
+        // Restore smooth scrolling after the jump is committed
+        requestAnimationFrame(() => {
+          document.documentElement.style.scrollBehavior = '';
+          document.body.style.scrollBehavior = '';
+        });
+      });
   }
 }

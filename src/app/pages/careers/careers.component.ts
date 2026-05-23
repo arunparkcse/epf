@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-careers',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, AnimateOnScrollDirective],
   templateUrl: './careers.component.html',
   styleUrls: ['./careers.component.scss']
 })

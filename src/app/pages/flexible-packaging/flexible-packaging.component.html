@@ -8,10 +8,10 @@
 <!-- Intro -->
 <section class="section">
   <div class="container product-intro-grid">
-    <div class="product-intro-img">
+    <div class="product-intro-img" animateOnScroll="slide-right">
       <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/10.png" alt="Flexible Packaging" loading="lazy"/>
     </div>
-    <div class="product-intro-text">
+    <div class="product-intro-text" animateOnScroll="slide-left" [delay]="150">
       <span class="section-badge">Our Products</span>
       <h2 class="section-title">Innovative Flexible <span style="color:var(--primary)">Packaging Solutions</span></h2>
       <div class="divider"></div>
@@ -46,7 +46,7 @@
     <!-- Tab Content -->
     @for (cat of categories; track cat.id; let i = $index) {
       @if (activeTab() === i) {
-        <div class="tab-panel">
+        <div class="tab-panel" animateOnScroll="fade-in">
           <div class="tab-img">
             <img [src]="cat.image" [alt]="cat.label" loading="lazy"/>
           </div>

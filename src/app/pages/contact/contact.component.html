@@ -11,7 +11,7 @@
 
 <!-- Info Cards -->
 <section class="section-sm contact-top">
-  <div class="container contact-cards">
+  <div class="container contact-cards" animateOnScroll>
     <div class="contact-info-card">
       <div class="ci-icon"><i class="fas fa-phone"></i></div>
       <h5>Call Us</h5>
@@ -40,7 +40,7 @@
 <!-- Form + Image -->
 <section class="section">
   <div class="container contact-main-grid">
-    <div class="contact-form-side">
+    <div class="contact-form-side" animateOnScroll="slide-right">
       <span class="section-badge">Get In Touch</span>
       <h2 class="section-title">Reach Our <span style="color:var(--primary)">Expert Team</span></h2>
       <div class="divider"></div>
@@ -82,7 +82,7 @@
       </form>
     </div>
 
-    <div class="contact-img-side">
+    <div class="contact-img-side" animateOnScroll="slide-left" [delay]="150">
       <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/contact-type-one-1-2.jpg" alt="Contact EPF" loading="lazy"/>
     </div>
   </div>
@@ -97,8 +97,8 @@
       <div class="divider center"></div>
     </div>
     <div class="offices-grid">
-      @for (office of offices; track office.city) {
-        <div class="office-card">
+      @for (office of offices; track office.city; let i = $index) {
+        <div class="office-card" animateOnScroll [delay]="i * 120">
           <div class="office-map">
             <iframe [src]="safeUrl(office.mapUrl)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>

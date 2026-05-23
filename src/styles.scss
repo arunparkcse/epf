@@ -463,3 +463,56 @@ a.btn-outline {
 
 /* section-sm padding helper */
 .section-sm { padding: var(--section-v-sm) 0; }
+
+/* =============================================================
+   SCROLL-TRIGGERED ANIMATIONS  (AnimateOnScrollDirective)
+   ============================================================= */
+
+/* ---- Keyframes ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Initial hidden state ---- */
+.aos-init {
+  will-change: opacity, transform;
+  transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.aos-fade-up     { opacity: 0; transform: translateY(32px); }
+.aos-fade-in     { opacity: 0; }
+.aos-slide-left  { opacity: 0; transform: translateX(48px); }
+.aos-slide-right { opacity: 0; transform: translateX(-48px); }
+.aos-zoom-in     { opacity: 0; transform: scale(0.92); }
+
+/* ---- Visible (animated) state ---- */
+.aos-animate {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .aos-init { transition: none !important; }
+  .aos-fade-up, .aos-fade-in, .aos-slide-left, .aos-slide-right, .aos-zoom-in {
+    opacity: 1;
+    transform: none;
+  }
+}

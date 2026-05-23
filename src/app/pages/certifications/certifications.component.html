@@ -14,8 +14,8 @@
       <p class="section-subtitle">EPF strengthens its dedication to quality with international certifications, highlighting our commitment to global standards across quality, safety, and environmental responsibility.</p>
     </div>
     <div class="certs-grid">
-      @for (cert of certs; track cert.title) {
-        <div class="cert-card" [class]="cert.color">
+      @for (cert of certs; track cert.title; let i = $index) {
+        <div class="cert-card" [class]="cert.color" animateOnScroll="zoom-in" [delay]="i * 120">
           <div class="cert-icon-wrap"><i [class]="cert.icon"></i></div>
           <div class="cert-badge-line"></div>
           <h3>{{ cert.title }}</h3>
@@ -28,7 +28,7 @@
 </section>
 
 <section class="cert-cta">
-  <div class="container cert-cta-inner">
+  <div class="container cert-cta-inner" animateOnScroll>
     <div>
       <h3>Want to verify our certifications?</h3>
       <p>Download our company profile for full details on our quality standards and accreditations.</p>

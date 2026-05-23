@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { AnimateOnScrollDirective } from '../../shared/directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-printing-technology',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, AnimateOnScrollDirective],
   templateUrl: './printing-technology.component.html',
   styleUrls: ['./printing-technology.component.scss']
 })

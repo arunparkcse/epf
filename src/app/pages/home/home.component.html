@@ -4,7 +4,11 @@
 <section class="hero">
   @for (slide of heroSlides; track slide.heading; let i = $index) {
     <div class="hero-slide" [class.active]="currentSlide() === i">
-      <div class="hero-bg" [style.backgroundImage]="'url(' + slide.image + ')'"></div>
+      @if (slide.videoSrc) {
+        <video class="hero-video" [src]="slide.videoSrc" autoplay muted loop playsinline></video>
+      } @else {
+        <div class="hero-bg" [style.backgroundImage]="'url(' + slide.image + ')'"></div>
+      }
       <div class="hero-scrim"></div>
       <div class="hero-content">
         <div class="hero-text">
@@ -15,7 +19,7 @@
           </h1>
           <p class="hero-sub">{{ slide.sub }}</p>
           <div class="hero-actions">
-            <a routerLink="/flexible-packaging" class="btn-dark">Explore Products <i class="fas fa-arrow-right"></i></a>
+            <a routerLink="/flexible-packaging" class="btn-white">Explore Products <i class="fas fa-arrow-right"></i></a>
             <a routerLink="/contact-us" class="btn-outline-light">Get a Quote</a>
           </div>
         </div>
@@ -63,7 +67,7 @@
 <section class="section about-section">
   <div class="about-grid">
     <!-- Image mosaic -->
-    <div class="about-images">
+    <div class="about-images" animateOnScroll="slide-right">
       <div class="about-img-main">
         <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-11.jpg" alt="EPF Facility" loading="lazy"/>
       </div>
@@ -76,20 +80,20 @@
       </div>
     </div>
     <!-- Text -->
-    <div class="about-content">
+    <div class="about-content" animateOnScroll="slide-left" [delay]="150">
       <p class="eyebrow">Emirates Printing Forms</p>
       <h2 class="section-title">Delivering Expert<br/>Printing Solutions<br/><em>Since 1989</em></h2>
       <div class="rule rule-gold"></div>
       <p class="body-text">EPF is a leading printing company with a modern production facility in Kizad, Abu Dhabi and a sales office in Dubai. Since 1989, EPF has earned a reputation as one of the top manufacturers in the UAE — specializing in flexible packaging and labelling products for the Middle East, GCC, and Africa.</p>
       <div class="about-pillars">
-        <div class="pillar">
+        <div class="pillar" animateOnScroll [delay]="300">
           <span class="pillar-num">01</span>
           <div>
             <h5 class="pillar-title">Internationally Certified</h5>
             <p class="pillar-desc">Multiple ISO certifications highlighting our commitment to global standards.</p>
           </div>
         </div>
-        <div class="pillar">
+        <div class="pillar" animateOnScroll [delay]="420">
           <span class="pillar-num">02</span>
           <div>
             <h5 class="pillar-title">Industry Leaders Since 1989</h5>
@@ -106,7 +110,7 @@
      PRODUCTS — editorial cards
      =================================================== -->
 <section class="section section-alt products-section">
-  <div class="section-inner">
+  <div class="section-inner" animateOnScroll>
     <div class="section-head">
       <p class="eyebrow">Our Products</p>
       <h2 class="section-title">Comprehensive<br/>Printing Solutions</h2>
@@ -115,7 +119,7 @@
   </div>
   <div class="products-grid">
     @for (product of products; track product.title; let i = $index) {
-      <article class="product-card">
+      <article class="product-card" animateOnScroll="zoom-in" [delay]="i * 160">
         <div class="product-card-img">
           <img [src]="product.image" [alt]="product.title" loading="lazy"/>
           <span class="product-num">{{ (i+1).toString().padStart(2,'0') }}</span>
@@ -141,7 +145,7 @@
      INDUSTRIES
      =================================================== -->
 <section class="section industries-section">
-  <div class="section-inner">
+  <div class="section-inner" animateOnScroll>
     <div class="section-head">
       <p class="eyebrow">Industries We Serve</p>
       <h2 class="section-title">Trusted Across<br/>12+ Industries</h2>
@@ -150,7 +154,7 @@
   </div>
   <div class="industries-grid">
     @for (ind of industries; track ind.name; let i = $index) {
-      <a [routerLink]="ind.link" class="industry-item">
+      <a [routerLink]="ind.link" class="industry-item" animateOnScroll="fade-up" [delay]="(i % 4) * 80">
         <span class="industry-num">{{ (i+1).toString().padStart(2,'0') }}</span>
         <div class="industry-icon">
           <img [src]="ind.icon" [alt]="ind.name" loading="lazy"/>
@@ -165,7 +169,7 @@
      PROCESS — numbered steps
      =================================================== -->
 <section class="section section-alt process-section">
-  <div class="section-inner">
+  <div class="section-inner" animateOnScroll>
     <div class="section-head">
       <p class="eyebrow">From Proof To Delivery</p>
       <h2 class="section-title">Printing<br/>Made Easy</h2>
@@ -173,8 +177,8 @@
     <p class="section-intro">Our comprehensive solutions guide your project from initial design through to final delivery.</p>
   </div>
   <div class="process-grid">
-    @for (step of processSteps; track step.num) {
-      <div class="process-step">
+    @for (step of processSteps; track step.num; let i = $index) {
+      <div class="process-step" animateOnScroll [delay]="i * 120">
         <div class="process-step-head">
           <span class="process-num">{{ step.num }}</span>
           <div class="process-icon">
@@ -194,7 +198,7 @@
      =================================================== -->
 <section class="video-section">
   <div class="video-section-inner">
-    <div class="video-section-text">
+    <div class="video-section-text" animateOnScroll="slide-right">
       <p class="eyebrow" style="color:var(--gold)">Inside EPF</p>
       <h2 class="display-title" style="color:var(--white)">See Our Facility<br/><em>In Action</em></h2>
       <div class="rule rule-gold"></div>
@@ -203,7 +207,7 @@
         Explore Technology <i class="fas fa-arrow-right"></i>
       </a>
     </div>
-    <div class="video-section-frame">
+    <div class="video-section-frame" animateOnScroll="slide-left" [delay]="160">
       <div class="video-embed-wrap">
         <iframe [src]="videoUrl"
           title="Emirates Printing Forms — Facility Tour"

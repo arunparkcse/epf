@@ -20,7 +20,7 @@
 <!-- Company Overview -->
 <section class="section">
   <div class="container about-main-grid">
-    <div class="about-gallery">
+    <div class="about-gallery" animateOnScroll="slide-right">
       <div class="gallery-main">
         <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-11.jpg" alt="EPF Facility" loading="lazy"/>
       </div>
@@ -29,7 +29,7 @@
         <img src="https://emiratesprintingforms.com/wp-content/uploads/2023/11/about-4.jpg" alt="EPF Team" loading="lazy"/>
       </div>
     </div>
-    <div class="about-detail">
+    <div class="about-detail" animateOnScroll="slide-left" [delay]="150">
       <span class="section-badge">Emirates Printing Forms</span>
       <h2 class="section-title">Leaders In The <span style="color:var(--primary)">Printing Industry</span></h2>
       <div class="divider"></div>
@@ -60,8 +60,8 @@
       <div class="divider center"></div>
     </div>
     <div class="why-grid">
-      @for (item of whyChooseUs; track item.num) {
-        <div class="why-card">
+      @for (item of whyChooseUs; track item.num; let i = $index) {
+        <div class="why-card" animateOnScroll [delay]="i * 110">
           <div class="why-num">{{ item.num }}</div>
           <div class="why-icon"><i [class]="item.icon"></i></div>
           <h4>{{ item.title }}</h4>
